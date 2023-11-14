@@ -1,13 +1,16 @@
 package Users;
 
 import Medicion.Medicion;
+import Objetivo.ObjetivoStrategy;
+import Trofeos.Trofeo;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Socio extends Usuario {
 
-    //private ObjetivoStrategy objetivoPrincipal;
-    //private List<Trofeo> trofeos = new ArrayList<Trofeo>();
+    private ObjetivoStrategy objetivoPrincipal;
+    private List<Trofeo> trofeos = new ArrayList<Trofeo>();
     private List<Medicion> mediciones = new ArrayList<Medicion>();
 
     public Socio (int edad, String sexoBiologico, String email, String password){
@@ -40,6 +43,22 @@ public class Socio extends Usuario {
 
     public String getSexoBiologico() {
         return this.sexoBiologico;
+    }
+
+    public void setObjetivoPrincipal(ObjetivoStrategy objetivoPrincipal) {
+        this.objetivoPrincipal = objetivoPrincipal;
+    }
+
+    public ObjetivoStrategy getObjetivoPrincipal() {
+        return this.objetivoPrincipal;
+    }
+
+    public void setTrofeos(List<Trofeo> trofeos) {
+        this.trofeos = trofeos;
+    }
+
+    public List<Trofeo> getTrofeos() {
+        return this.trofeos;
     }
 
 }

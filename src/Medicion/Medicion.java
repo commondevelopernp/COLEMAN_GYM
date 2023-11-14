@@ -4,17 +4,25 @@ import java.util.Date;
 
 public class Medicion {
 
-        private Date fecha = new Date();
+        private Date fecha;
         private Float peso;
         private Float masaMuscular;
         private Float grasaCorporal;
         private Float altura;
 
-        public Medicion(Float peso, Float masaMuscular, Float grasaCorporal, Float altura){
-            this.peso = peso;
-            this.masaMuscular = masaMuscular;
-            this.grasaCorporal = grasaCorporal;
-            this.altura = altura;
+        public Medicion(){
+            this.fecha = new Date();
+        }
+
+        public void registrarMedicion(Float peso, Float masaMuscular, Float grasaCorporal, Float altura){
+
+            AdapterBalanza balanza = new BalanzaExterna();
+
+            setGrasaCorporal(balanza.medirGrasaCorporal(grasaCorporal));
+            setMasaMuscular(balanza.medirMasaMuscular(masaMuscular));
+            setAltura(balanza.medirAltura(altura));
+            setPeso(balanza.medirPeso(peso));
+            
         }
 
         public void setPeso(Float peso) {

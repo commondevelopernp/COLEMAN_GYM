@@ -1,12 +1,17 @@
 package Objetivo;
 
+import Medicion.Medicion;
+import Rutina.Rutina;
+import Users.Socio;
+
 public abstract class ObjetivoStrategy {
 
     private int nivelExigencia;
     private int nivelAerobico;
     private String duracionEntrenamiento;
-    
-    public abstract void update();
+    private Rutina rutina;
+    private Boolean cumplido;
+    private Socio socio; // No creo necesario este atributo
 
     public int getNivelExigencia() {
         return nivelExigencia;
@@ -31,4 +36,32 @@ public abstract class ObjetivoStrategy {
     public void setDuracionEntrenamiento(String duracionEntrenamiento) {
         this.duracionEntrenamiento = duracionEntrenamiento;
     }
+
+    public void setRutina(Rutina rutina) {
+        this.rutina = rutina;
+    }
+
+    public Rutina getRutina() {
+        return rutina;
+    }
+
+    public abstract void verificarObjetivo(Medicion medicion);
+
+    public void setCumplido(Boolean cumplido) {
+        this.cumplido = cumplido;
+    }
+
+    public Boolean getCumplido() {
+        return cumplido;
+    }
+
+    public void setSocio(Socio socio) {
+        this.socio = socio;
+    }
+
+    public Socio getSocio() {
+        return socio;
+    }
+
+
 }
