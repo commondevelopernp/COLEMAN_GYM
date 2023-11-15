@@ -1,11 +1,18 @@
 package Trofeos;
 
-public abstract class Trofeo {
+public class Trofeo {
 
     private String nombre;
     private String descripcion;
 
-    public abstract void otorgarTrofeo();
+    public Trofeo(String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+
+    public void otorgarTrofeo(){
+        
+    };
 
     public String getNombre() {
         return nombre;
@@ -24,3 +31,5 @@ public abstract class Trofeo {
     }
     
 }
+
+

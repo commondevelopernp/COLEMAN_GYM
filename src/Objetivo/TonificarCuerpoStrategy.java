@@ -11,6 +11,7 @@ public class TonificarCuerpoStrategy extends ObjetivoStrategy {
         super();
         this.masaMuscularIdeal = 0f;
         this.porcentajeGrasaIdeal = 0f;
+
     }
 
     @Override

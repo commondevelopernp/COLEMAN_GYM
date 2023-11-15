@@ -1,11 +1,13 @@
 package Objetivo;
 
 import Medicion.Medicion;
+import Observer.Observado;
 import Rutina.Rutina;
 import Users.Socio;
 
-public abstract class ObjetivoStrategy {
+public abstract class ObjetivoStrategy extends Observado{
 
+    private String nombre;
     private int nivelExigencia;
     private int nivelAerobico;
     private String duracionEntrenamiento;
@@ -61,6 +63,14 @@ public abstract class ObjetivoStrategy {
 
     public Socio getSocio() {
         return socio;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
 

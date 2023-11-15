@@ -3,9 +3,11 @@ package Rutina;
 import java.util.List;
 
 import Entrenamiento.Entrenamiento;
+import Observer.Observado;
 
-public class Rutina {
+public class Rutina extends Observado{
 
+    private String nombre;
     private List<Entrenamiento> entrenamientos;
     private Boolean cumplido;
 
@@ -23,6 +25,14 @@ public class Rutina {
 
     public Boolean getCumplido() {
         return cumplido;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
     
 }

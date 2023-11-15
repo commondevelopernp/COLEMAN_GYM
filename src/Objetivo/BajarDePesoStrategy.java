@@ -16,6 +16,7 @@ public class BajarDePesoStrategy extends ObjetivoStrategy {
     public void verificarObjetivo(Medicion medicion) {
         if (medicion.getPeso() <= this.getPesoIdeal()) {
             setCumplido(true);
+            notifyObservers();
         } else {
             setCumplido(false);
         }

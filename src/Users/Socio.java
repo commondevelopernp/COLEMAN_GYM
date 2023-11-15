@@ -53,8 +53,8 @@ public class Socio extends Usuario {
         return this.objetivoPrincipal;
     }
 
-    public void setTrofeos(List<Trofeo> trofeos) {
-        this.trofeos = trofeos;
+    public void setTrofeos(Trofeo trofeo) {
+        this.trofeos.add(trofeo);
     }
 
     public List<Trofeo> getTrofeos() {
