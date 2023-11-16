@@ -7,6 +7,7 @@ import Users.Socio;
 
 public abstract class ObjetivoStrategy extends Observado{
 
+    private final int MAX_NIVEL_EXIGENCIA = 3;
     private String nombre;
     private int nivelExigencia;
     private int nivelAerobico;
@@ -71,6 +72,10 @@ public abstract class ObjetivoStrategy extends Observado{
 
     public String getNombre() {
         return nombre;
+    }
+
+    public int getMaxNivelExigencia() {
+        return MAX_NIVEL_EXIGENCIA;
     }
 
 

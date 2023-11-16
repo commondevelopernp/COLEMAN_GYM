@@ -9,8 +9,8 @@ public class Entrenamiento {
     private List<Ejercicio> ejercicios;
     private Double tiempoEntrenamiento;
 
-    public void setEjercicios(List<Ejercicio> ejercicios) {
-        this.ejercicios = ejercicios;
+    public void setEjercicios(Ejercicio ejercicio) {
+        this.ejercicios.add(ejercicio);
     }
 
     public void setTiempoEntrenamiento(Double tiempoEntrenamiento) {

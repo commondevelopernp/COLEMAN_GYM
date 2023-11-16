@@ -5,6 +5,7 @@ import Observer.NotificadorTrofeoConstancia;
 import Observer.NotificadorTrofeoCreido;
 import Observer.NotificadorTrofeoDedicacion;
 import Observer.ObservadorPremio;
+import Rutina.Rutina;
 import Trofeos.Trofeo;
 import Users.Socio;
 
@@ -30,6 +31,13 @@ public class Main {
         // Seteo estrategia
         Float pesoIdeal = 70.5f;
         BajarDePesoStrategy objetivo = new BajarDePesoStrategy(pesoIdeal); 
+
+        // Seteo la rutina
+        // Rutina rutina = new Rutina();
+        // rutina.setEntrenamientos(null);
+        // objetivo.setRutina(null);
+
+
         socio.setObjetivoPrincipal(objetivo);
         System.out.println("Estrategia elegida: " + socio.getObjetivoPrincipal() + "\n\n");
 

@@ -1,6 +1,6 @@
 package Ejercicio;
 
-public class Ejercicio {
+public abstract class Ejercicio {
 
     private String nombre;
     private Musculo nombreMusculo;
@@ -10,12 +10,8 @@ public class Ejercicio {
     private Double pesoAsignado;
     private int nivelAerobico;
     
-    public void reforzarRutina(){
-        setSeries(this.getSeries() + 1);
-        setRepeticiones(this.getRepeticiones() + 3);
-        setPesoAsignado(this.getPesoAsignado() * 1.2);
-        setNivelAerobico(this.getNivelAerobico() + 1);
-    }
+    public abstract void reforzarRutina();
+
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
