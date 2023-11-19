@@ -2,10 +2,17 @@ package Observer;
 
 import Rutina.Rutina;
 import Trofeos.Trofeo;
+import Users.Socio;
 
 public class NotificadorTrofeoConstancia extends ObservadorPremio{
 
     private Rutina rutina;
+
+    public NotificadorTrofeoConstancia(Socio socio) {
+        super();
+        this.socio = socio;
+        this.rutina = socio.getObjetivoPrincipal().getRutina();
+    }
 
     @Override
     public void update(){
@@ -21,7 +28,7 @@ public class NotificadorTrofeoConstancia extends ObservadorPremio{
 
         Trofeo trofeo = new Trofeo(
             "Constancia", 
-            "Se otorga a los socios que cumplen a la perfeccion la rutina" + " " + "Rutina: " + rutina.getNombre()
+            "Se otorga a los socios que cumplen a la perfeccion la rutina"
         );
 
         this.socio.setTrofeos(trofeo);

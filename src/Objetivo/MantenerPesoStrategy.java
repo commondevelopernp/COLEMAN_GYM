@@ -9,8 +9,11 @@ public class MantenerPesoStrategy extends ObjetivoStrategy {
 
     public MantenerPesoStrategy(Float pesoMinimoIdeal, Float pesoMaximoIdeal) {
         super();
+        this.setNombre("Mantener Peso");
         this.pesoMinimoIdeal = pesoMinimoIdeal;
         this.pesoMaximoIdeal = pesoMaximoIdeal;
+        setDURACION_MIN(45);
+        setDURACION_MAX(80);
     }
 
     @Override

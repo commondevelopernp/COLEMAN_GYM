@@ -9,7 +9,10 @@ public class BajarDePesoStrategy extends ObjetivoStrategy {
 
     public BajarDePesoStrategy(Float pesoIdeal) {
         super();
+        this.setNombre("Bajar de Peso");
         this.pesoIdeal = pesoIdeal;
+        setDURACION_MIN(60);
+        setDURACION_MAX(90);
     }
 
     @Override

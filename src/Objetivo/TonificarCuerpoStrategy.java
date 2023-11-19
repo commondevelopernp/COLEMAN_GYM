@@ -9,9 +9,11 @@ public class TonificarCuerpoStrategy extends ObjetivoStrategy {
 
     public TonificarCuerpoStrategy() {
         super();
+        this.setNombre("Tonificar Cuerpo");
         this.masaMuscularIdeal = 0f;
         this.porcentajeGrasaIdeal = 0f;
-
+        setDURACION_MIN(120);
+        setDURACION_MAX(150);
     }
 
     @Override

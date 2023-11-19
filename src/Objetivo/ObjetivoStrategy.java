@@ -11,10 +11,12 @@ public abstract class ObjetivoStrategy extends Observado{
     private String nombre;
     private int nivelExigencia;
     private int nivelAerobico;
-    private String duracionEntrenamiento;
+    private int duracionEntrenamiento;
     private Rutina rutina;
     private Boolean cumplido;
     private Socio socio; // No creo necesario este atributo
+    private int DURACION_MIN;
+    private int DURACION_MAX;
 
     public int getNivelExigencia() {
         return nivelExigencia;
@@ -24,7 +26,7 @@ public abstract class ObjetivoStrategy extends Observado{
         return nivelAerobico;
     }
 
-    public String getDuracionEntrenamiento() {
+    public int getDuracionEntrenamiento() {
         return duracionEntrenamiento;
     }
 
@@ -36,7 +38,7 @@ public abstract class ObjetivoStrategy extends Observado{
         this.nivelAerobico = nivelAerobico;
     }
 
-    public void setDuracionEntrenamiento(String duracionEntrenamiento) {
+    public void setDuracionEntrenamiento(int duracionEntrenamiento) {
         this.duracionEntrenamiento = duracionEntrenamiento;
     }
 
@@ -76,6 +78,22 @@ public abstract class ObjetivoStrategy extends Observado{
 
     public int getMaxNivelExigencia() {
         return MAX_NIVEL_EXIGENCIA;
+    }
+
+    public void setDURACION_MIN(int DURACION_MIN) {
+        this.DURACION_MIN = DURACION_MIN;
+    }
+
+    public int getDURACION_MIN() {
+        return DURACION_MIN;
+    }
+
+    public void setDURACION_MAX(int DURACION_MAX) {
+        this.DURACION_MAX = DURACION_MAX;
+    }
+
+    public int getDURACION_MAX() {
+        return DURACION_MAX;
     }
 
 

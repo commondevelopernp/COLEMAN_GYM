@@ -16,11 +16,9 @@ public class NotificadorTrofeoDedicacion extends ObservadorPremio{
 
     @Override
     public void update(){
-
         if (objetivo.getCumplido()){
             this.addAListaSocio();
         }
-
     };
 
     @Override

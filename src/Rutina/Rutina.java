@@ -2,33 +2,57 @@ package Rutina;
 
 import java.util.List;
 
+import Ejercicio.Ejercicio;
 import Entrenamiento.Entrenamiento;
-import Objetivo.ObjetivoStrategy;
 import Observer.Observado;
-import Users.Socio;
 
 public class Rutina extends Observado{
 
-    private String nombre;
-    private List<Entrenamiento> entrenamientos;
-    private Boolean cumplido;
-    private ObjetivoStrategy objetivo;
+    protected List<Entrenamiento> entrenamientos;
+    protected Boolean cumplido;
+    protected static int duracion = 4;
 
-    public Rutina(String nombre, List<Entrenamiento> entrenamientos, ObjetivoStrategy objetivo) {
-        this.nombre = nombre;
+    public Rutina(List<Entrenamiento> entrenamientos) {
         this.entrenamientos = entrenamientos;
         this.cumplido = false;
-        this.objetivo = objetivo;
     }
 
-    public void setEntrenamientos(List<Entrenamiento> entrenamientos, ObjetivoStrategy objetivo) {
-        Socio socio = objetivo.getSocio();
+    public void reforzarRutinaSimple(){
+        for (Entrenamiento entrenamiento : this.entrenamientos) {
+            for(Ejercicio ejercicio : entrenamiento.getEjercicios()){
+                ejercicio.setRepeticiones(ejercicio.getRepeticiones() + 1);
+                ejercicio.setPesoAsignado(ejercicio.getPesoAsignado() * 1.2);
+                ejercicio.setSeries(ejercicio.getSeries() + 1);
+            }
+        }
+    };
 
-        List<String> dias = socio.getDiasEntrenamiento();
+    public void reforzarRutinaIntenso(){
+        for (Entrenamiento entrenamiento : this.entrenamientos) {
+            for(Ejercicio ejercicio : entrenamiento.getEjercicios()){
+                ejercicio.setRepeticiones(ejercicio.getRepeticiones() + 3);
+                ejercicio.setPesoAsignado(ejercicio.getPesoAsignado() * 1.4);
+                ejercicio.setSeries(ejercicio.getSeries() + 3);
+            }
+        }
+    };
 
-        
-
+   
+    public void setEntrenamientos(List<Entrenamiento> entrenamientos) {
         this.entrenamientos = entrenamientos;
+    }
+
+    public void verificarCumplido() {
+        int countEntrenamientos = entrenamientos.size();
+        for (Entrenamiento entrenamiento : entrenamientos) {
+            if (entrenamiento.getCumplido()) {
+                countEntrenamientos--;
+            }
+        }
+        if (countEntrenamientos == 0) {
+            this.setCumplido(true);
+        }
+        notifyObservers();
     }
 
     public void setCumplido(Boolean cumplido) {
@@ -43,12 +67,10 @@ public class Rutina extends Observado{
         return cumplido;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public int getDuracion() {
+        return duracion;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
+
     
 }

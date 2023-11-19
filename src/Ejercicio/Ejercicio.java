@@ -1,6 +1,6 @@
 package Ejercicio;
 
-public abstract class Ejercicio {
+public class Ejercicio {
 
     private String nombre;
     private Musculo nombreMusculo;
@@ -9,8 +9,19 @@ public abstract class Ejercicio {
     private int repeticiones;
     private Double pesoAsignado;
     private int nivelAerobico;
+    private ExigenciaMuscular exigenciaMuscular;
     
-    public abstract void reforzarRutina();
+    public Ejercicio(String nombre, Musculo nombreMusculo, Double tiempoEstimadoEjercicio, int series, int repeticiones, Double pesoAsignado, int nivelAerobico, ExigenciaMuscular exigenciaMuscular) {
+        this.nombre = nombre;
+        this.nombreMusculo = nombreMusculo;
+        this.tiempoEstimadoEjercicio = tiempoEstimadoEjercicio;
+        this.series = series;
+        this.repeticiones = repeticiones;
+        this.pesoAsignado = pesoAsignado;
+        this.nivelAerobico = nivelAerobico;
+        this.exigenciaMuscular = exigenciaMuscular;
+    }
+
 
 
     public void setNombre(String nombre) {
@@ -67,6 +78,14 @@ public abstract class Ejercicio {
 
     public int getNivelAerobico() {
         return nivelAerobico;
+    }
+
+    public ExigenciaMuscular getExigenciaMuscular() {
+        return exigenciaMuscular;
+    }
+
+    public void setExigenciaMuscular(ExigenciaMuscular exigenciaMuscular) {
+        this.exigenciaMuscular = exigenciaMuscular;
     }
 
     @Override
