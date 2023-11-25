@@ -3,7 +3,7 @@ package Objetivo;
 import Medicion.Medicion;
 import Observer.Observado;
 import Rutina.Rutina;
-
+import Rutina.FactoryRutina;
 
 public abstract class ObjetivoStrategy extends Observado{
 
@@ -16,13 +16,20 @@ public abstract class ObjetivoStrategy extends Observado{
     private Boolean cumplido;
     private int DURACION_MIN;
     private int DURACION_MAX;
+    
+    
+   
 
-    public ObjetivoStrategy(){
-        this.rutina = new Rutina();
+    public void setRutina(){
+        this.rutina = FactoryRutina.crearRutina(getNombre(), getDiasEntrenamiento()); 
+        
     }
-
     public int getNivelExigencia() {
         return nivelExigencia;
+    }
+
+    public int getDiasEntrenamiento(){
+        return this.duracionEntrenamiento;
     }
 
     public int getNivelAerobico() {
@@ -43,10 +50,6 @@ public abstract class ObjetivoStrategy extends Observado{
 
     public void setDuracionEntrenamiento(int duracionEntrenamiento) {
         this.duracionEntrenamiento = duracionEntrenamiento;
-    }
-
-    public void setRutina(Rutina rutina) {
-        this.rutina = rutina;
     }
 
     public Rutina getRutina() {

@@ -1,5 +1,6 @@
 package Rutina;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Ejercicio.Ejercicio;
@@ -7,18 +8,20 @@ import Entrenamiento.Entrenamiento;
 import Observer.Observado;
 import Observer.ObserverGeneral;
 
-public class Rutina extends Observado implements ObserverGeneral{
+public abstract class  Rutina extends Observado implements ObserverGeneral{
 
-    protected List<Entrenamiento> entrenamientos;
+    protected List<Entrenamiento> entrenamientos = new ArrayList<Entrenamiento>();
     protected Boolean cumplido;
     protected static int duracion = 4;
 
-    public Rutina(){};
+    public Rutina(int diasEntrenamiento){
+        
+    };
 
-    public Rutina(List<Entrenamiento> entrenamientos) {
-        this.entrenamientos = entrenamientos;
-        this.cumplido = false;
-    }
+
+
+    public abstract void setEntrenamientos();
+    
 
     public void reforzarRutinaSimple(){
         for (Entrenamiento entrenamiento : this.entrenamientos) {

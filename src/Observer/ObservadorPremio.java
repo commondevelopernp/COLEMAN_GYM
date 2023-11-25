@@ -2,7 +2,7 @@ package Observer;
 
 import Users.Socio;
 
-public abstract class ObservadorPremio implements ObserverGeneral {
+public abstract class ObservadorPremio  {
 
     protected Socio socio;
 
