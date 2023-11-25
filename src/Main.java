@@ -73,6 +73,12 @@ public class Main {
 
         // Seteo primer medicion
         Medicion medicion = new Medicion();
+
+        // Instancio el observador del trofeo creido
+        ObservadorPremio observerCreido = new NotificadorTrofeoCreido(socio);
+
+        medicion.attach(observerCreido);
+
         medicion.registrarMedicion(80f, 20f, 20f, 1.80f);
         socio.setMedicion(medicion);
         System.out.println("Primer medicion: " + socio.getMedicion() + "\n\n");
@@ -120,7 +126,6 @@ public class Main {
         int duracionMAX = objetivo.getDURACION_MAX();
         int duracionMIN = objetivo.getDURACION_MIN();
         Entrenamiento entrenamientoLunes = new Entrenamiento(ejercicioBrazo, duracionMIN, duracionMAX);
-        
         Entrenamiento entrenamientoMartes = new Entrenamiento(ejercicioPierna, duracionMIN, duracionMAX);
         Entrenamiento entrenamientoMiercoles = new Entrenamiento(ejercicioEspalda, duracionMIN, duracionMAX);
         Entrenamiento entrenamientoJueves = new Entrenamiento(ejercicioEspalda, duracionMIN, duracionMAX);
@@ -149,22 +154,20 @@ public class Main {
         // System.out.println("Estrategia elegida: " + socio.getObjetivoPrincipal() + "\n\n");
 
         // Instancio los observadores
-        ObservadorPremio observerCreido = new NotificadorTrofeoCreido();
         ObservadorPremio observerConstancia = new NotificadorTrofeoConstancia(socio);
         ObservadorPremio observerDedicacion = new NotificadorTrofeoDedicacion(socio);
 
-        // Seteo observadores
+        // Seteo observadores al objetivo y a la rutina
         objetivo.attach(observerDedicacion);
         rutina.attach(observerConstancia);
 
         // Seteo nueva medicion
-        Medicion medicion1 = new Medicion();
-        medicion1.registrarMedicion(70.0f, 22f, 18f, 1.80f);
-        socio.setMedicion(medicion1);
+        medicion.registrarMedicion(70.0f, 22f, 18f, 1.80f);
+        socio.setMedicion(medicion);
         System.out.println("Segunda medicion: " + socio.getMedicion() + "\n\n");
 
         // Verifico objetivo
-        objetivo.verificarObjetivo(medicion1);
+        objetivo.verificarObjetivo(medicion);
         System.out.println("El objetivo se ha cumplido ?: " + objetivo.getCumplido() + "\n\n");
 
         // Verifico rutina
@@ -183,30 +186,22 @@ public class Main {
         rutina.verificarCumplido();
         System.out.println("La rutina se ha cumplido ?: " + rutina.getCumplido() + "\n\n");
 
+
+        // Seteo nueva medicion
+        medicion.registrarMedicion(65.0f, 23f, 16f, 1.80f);
+        socio.setMedicion(medicion);
+        System.out.println("Tercer medicion: " + socio.getMedicion() + "\n\n");
+
         // Veo si se entrego el trofeo correctamente
         for (Trofeo trofeo : socio.getTrofeos()) {
             System.out.println(trofeo.getNombre() + "\n" + trofeo.getDescripcion() + "\n\n");
         }
 
-
-       
-
         System.out.println("Rutina sin reforzar \n\n");
-        for (Entrenamiento entrenamiento : rutina.getEntrenamientos()) {
-                for (Ejercicio ejercicio : entrenamiento.getEjercicios()) {
-                        System.out.println(ejercicio.getPesoAsignado() + "\n");
-                }
-        }
-
-        System.out.println("REFORZANDO........\n\n");
+        System.out.println("Reforzando rutina........\n\n");
         rutina.reforzarRutinaSimple();
-
-        for (Entrenamiento entrenamiento : rutina.getEntrenamientos()) {
-                for (Ejercicio ejercicio : entrenamiento.getEjercicios()) {
-                        System.out.println(ejercicio.getPesoAsignado() + "\n");
-                }
-        }
-        
+        System.out.println("Rutina reforzada........\n\n");
+       
         
 
     }

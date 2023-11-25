@@ -2,8 +2,11 @@ package Medicion;
 
 import java.util.Date;
 
-public class Medicion {
+import Observer.Observado;
 
+public class Medicion extends Observado{
+
+        private static int CANT_MEDICIONES = 0;
         private Date fecha;
         private Float peso;
         private Float masaMuscular;
@@ -22,7 +25,12 @@ public class Medicion {
             setMasaMuscular(balanza.medirMasaMuscular(masaMuscular));
             setAltura(balanza.medirAltura(altura));
             setPeso(balanza.medirPeso(peso));
-            
+
+            notifyObservers();
+        }
+
+        public int getCantidadMediciones(){
+            return CANT_MEDICIONES;
         }
 
         public void setPeso(Float peso) {

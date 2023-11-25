@@ -1,6 +1,6 @@
 package Ejercicio;
 
-public class Ejercicio {
+public abstract class  Ejercicio {
 
     private String nombre;
     private Musculo nombreMusculo;
@@ -10,6 +10,7 @@ public class Ejercicio {
     private Double pesoAsignado;
     private int nivelAerobico;
     private ExigenciaMuscular exigenciaMuscular;
+    private boolean cumplido;
     
     public Ejercicio(String nombre, Musculo nombreMusculo, Double tiempoEstimadoEjercicio, int series, int repeticiones, Double pesoAsignado, int nivelAerobico, ExigenciaMuscular exigenciaMuscular) {
         this.nombre = nombre;
@@ -22,8 +23,14 @@ public class Ejercicio {
         this.exigenciaMuscular = exigenciaMuscular;
     }
 
+    public void setCumplido(boolean cumplido) {
+        this.cumplido = cumplido;
+    }
 
-
+    public boolean getCumplido() {
+        return cumplido;
+    }
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
