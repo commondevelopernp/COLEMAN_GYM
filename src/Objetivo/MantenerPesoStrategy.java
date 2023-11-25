@@ -2,6 +2,7 @@ package Objetivo;
 
 import Medicion.Medicion;
 
+
 public class MantenerPesoStrategy extends ObjetivoStrategy {
 
     private Float pesoMinimoIdeal;

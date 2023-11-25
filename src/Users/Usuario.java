@@ -1,6 +1,8 @@
 package Users;
 
-public abstract class Usuario {
+import Observer.Observado;
+
+public abstract class Usuario extends Observado{
     protected int edad;
     protected String sexoBiologico;
     protected String email;

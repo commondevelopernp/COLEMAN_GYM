@@ -1,11 +1,13 @@
 package Objetivo;
 
 import Medicion.Medicion;
+import Rutina.Rutina;
 
 public class TonificarCuerpoStrategy extends ObjetivoStrategy {
 
     private Float masaMuscularIdeal;
     private Float porcentajeGrasaIdeal;
+    private Rutina rutina;
 
     public TonificarCuerpoStrategy() {
         super();
@@ -14,6 +16,7 @@ public class TonificarCuerpoStrategy extends ObjetivoStrategy {
         this.porcentajeGrasaIdeal = 0f;
         setDURACION_MIN(120);
         setDURACION_MAX(150);
+
     }
 
     @Override

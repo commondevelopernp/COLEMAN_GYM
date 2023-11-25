@@ -1,6 +1,6 @@
 package Ejercicio;
 
-public abstract class  Ejercicio {
+public  class  Ejercicio {
 
     private String nombre;
     private Musculo nombreMusculo;

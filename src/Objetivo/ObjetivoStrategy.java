@@ -3,7 +3,7 @@ package Objetivo;
 import Medicion.Medicion;
 import Observer.Observado;
 import Rutina.Rutina;
-import Users.Socio;
+
 
 public abstract class ObjetivoStrategy extends Observado{
 
@@ -14,9 +14,12 @@ public abstract class ObjetivoStrategy extends Observado{
     private int duracionEntrenamiento;
     private Rutina rutina;
     private Boolean cumplido;
-    private Socio socio; // No creo necesario este atributo
     private int DURACION_MIN;
     private int DURACION_MAX;
+
+    public ObjetivoStrategy(){
+        this.rutina = new Rutina();
+    }
 
     public int getNivelExigencia() {
         return nivelExigencia;
@@ -58,14 +61,6 @@ public abstract class ObjetivoStrategy extends Observado{
 
     public Boolean getCumplido() {
         return cumplido;
-    }
-
-    public void setSocio(Socio socio) {
-        this.socio = socio;
-    }
-
-    public Socio getSocio() {
-        return socio;
     }
 
     public void setNombre(String nombre) {

@@ -46,8 +46,9 @@ public class Socio extends Usuario {
         return this.sexoBiologico;
     }
 
-    public void setObjetivoPrincipal(ObjetivoStrategy objetivoPrincipal) {
+    public void cambiarEstrategia(ObjetivoStrategy objetivoPrincipal) {
         this.objetivoPrincipal = objetivoPrincipal;
+        notifyObservers();
     }
 
     public ObjetivoStrategy getObjetivoPrincipal() {

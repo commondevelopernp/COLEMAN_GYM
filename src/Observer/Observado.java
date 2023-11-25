@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Observado {
 
-    private List<ObservadorPremio> observadores = new ArrayList<ObservadorPremio>();
+    private List<ObserverGeneral> observadores = new ArrayList<ObserverGeneral>();
     
     public void attach(ObservadorPremio observador) {
         observadores.add(observador);
@@ -16,7 +16,7 @@ public class Observado {
     }
 
     public void notifyObservers() {
-        for (ObservadorPremio observador : observadores) {
+        for (ObserverGeneral observador : observadores) {
             observador.update();
         }
     }

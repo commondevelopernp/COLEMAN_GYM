@@ -150,7 +150,7 @@ public class Main {
         // rutina.setEntrenamientos(null);
         // objetivo.setRutina(null);
 
-        socio.setObjetivoPrincipal(objetivo);
+        socio.cambiarEstrategia(objetivo);
         // System.out.println("Estrategia elegida: " + socio.getObjetivoPrincipal() + "\n\n");
 
         // Instancio los observadores
@@ -202,7 +202,5 @@ public class Main {
         rutina.reforzarRutinaSimple();
         System.out.println("Rutina reforzada........\n\n");
        
-        
-
     }
 }

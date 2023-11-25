@@ -5,12 +5,15 @@ import java.util.List;
 import Ejercicio.Ejercicio;
 import Entrenamiento.Entrenamiento;
 import Observer.Observado;
+import Observer.ObserverGeneral;
 
-public class Rutina extends Observado{
+public class Rutina extends Observado implements ObserverGeneral{
 
     protected List<Entrenamiento> entrenamientos;
     protected Boolean cumplido;
     protected static int duracion = 4;
+
+    public Rutina(){};
 
     public Rutina(List<Entrenamiento> entrenamientos) {
         this.entrenamientos = entrenamientos;
@@ -69,6 +72,11 @@ public class Rutina extends Observado{
 
     public int getDuracion() {
         return duracion;
+    }
+
+    @Override
+    public void update() {
+        setEntrenamientos(entrenamientos);
     }
 
 
