@@ -11,11 +11,11 @@ public class TonificarCuerpoStrategy extends ObjetivoStrategy {
     private Float masaMuscularIdeal;
     private Float porcentajeGrasaIdeal;
 
-    public TonificarCuerpoStrategy() {
+    public TonificarCuerpoStrategy(Float masaMuscularIdeal, Float porcentajeGrasaIdeal) {
         super();
         this.setNombre("Tonificar");
-        this.masaMuscularIdeal = 0f;
-        this.porcentajeGrasaIdeal = 0f;
+        this.masaMuscularIdeal = masaMuscularIdeal;
+        this.porcentajeGrasaIdeal = porcentajeGrasaIdeal;
     }
 
     @Override

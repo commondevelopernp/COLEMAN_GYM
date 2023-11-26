@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import Controllers.MedicionController;
+import Controllers.ObjetivoController;
+import Controllers.SocioController;
 import Ejercicio.Ejercicio;
 import Ejercicio.ExigenciaMuscular;
 import Ejercicio.Musculo;
@@ -23,30 +26,43 @@ public class Main {
     public static void main(String[] args) {
 
         Gym COLEMAN_GYM = Gym.getInstance();
-        // Creo el socio
-        Socio socio = new Socio(20, "Masculino", "asd@asd.com", "1234");
 
-        socio.setDiasEntrenamiento(4);
+        // Creo los controladores
+        SocioController socioController = new SocioController();
+        MedicionController medicionController = new MedicionController();
+        ObjetivoController objetivoController = new ObjetivoController();
+
+        // Creo el socio
+        Socio socio = socioController.crearSocio(20, "Masculino", "asd@asd.com", "1234");
 
         // Logueo al socio
-        System.out.println(socio.loguearse(socio.getEmail(), socio.getPassword() + "\n\n"));
+        System.out.println(
+                socioController.loguearse(socio) + "\n\n" + "Socio logueado: " + socio.getEmail() + "\n\n"
+        );
+
+
+        // Elijo los dias de entrenamiento
+        socioController.setDiasEntrenamiento(socio, 4);
+
 
         // Seteo estrategia
-        Float pesoIdeal = 70.5f;
 
         /*****************************************************  METODOS QUE DEBE MANEJAR EL CONTROLADOR /***************************************************** */
         //***************************************************** /***************************************************** /*****************************************************
-        
-        MantenerPesoStrategy objetivo = new MantenerPesoStrategy(70.0f, 80.0f);
+
+        MantenerPesoStrategy objetivo = objetivoController.crearObjetivoMantener(80f, 90f);
 
         Rutina rutina = FactoryRutina.crearRutina(objetivo.getNombre(), socio.getDiasEntrenamiento(), COLEMAN_GYM.getEjercicios());
         
         System.out.println(rutina.getEntrenamientos());
-        objetivo.setRutina(rutina);
+
+
+        // Seteo la rutina para la objetivo
+        objetivoController.setRutina(objetivo, rutina);
 
         
-
-        socio.cambiarEstrategia(objetivo);
+        // Seteo estrategia
+        socioController.cambiarEstrategia(socio, objetivo);
         System.out.println("Estrategia elegida: " + socio.getObjetivoPrincipal() + "\n\n");
 
         // Instancio los observadores
@@ -55,13 +71,11 @@ public class Main {
         ObservadorPremio observerDedicacion = new NotificadorTrofeoDedicacion(socio);
 
         // Seteo primer medicion
-
-        Medicion medicion = new Medicion();
-
+        Medicion medicion = medicionController.crearMedicion(80f, 20f, 20f, 1.80f);
         medicion.attach(observerCreido);
 
-        medicion.registrarMedicion(80f, 20f, 20f, 1.80f);
-        socio.setMedicion(medicion);
+
+        socioController.setMedicion(socio, medicion);
         System.out.println("Primer medicion: " + socio.getMedicion() + "\n\n");
        
         // Seteo observadores al objetivo y a la rutina
