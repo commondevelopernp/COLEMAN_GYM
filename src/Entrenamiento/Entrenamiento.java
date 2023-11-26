@@ -11,13 +11,17 @@ public class Entrenamiento {
     private boolean cumplido;
     private int tiempoEntrenamiento = 0;
 
+    public Entrenamiento() {
+        this.cumplido = false;
+    }
+
     public Entrenamiento(List<Ejercicio> ejerciciosList, int duracionMIN, int duracionMAX) {
-        
+
         for (Ejercicio ejercicio : ejerciciosList) {
             if ((tiempoEntrenamiento + ejercicio.getTiempoEstimadoEjercicio() <= duracionMAX )) {
                 this.ejercicios.add(ejercicio);
                 tiempoEntrenamiento += ejercicio.getTiempoEstimadoEjercicio();
-            } 
+            }
         }
         this.cumplido = false;
     }

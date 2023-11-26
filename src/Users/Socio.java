@@ -12,7 +12,7 @@ public class Socio extends Usuario {
     private ObjetivoStrategy objetivoPrincipal;
     private List<Trofeo> trofeos = new ArrayList<Trofeo>();
     private List<Medicion> mediciones = new ArrayList<Medicion>();
-    private List<String> diasEntrenamiento = new ArrayList<String>();
+    private int diasEntrenamiento;
 
     public Socio (int edad, String sexoBiologico, String email, String password){
         super();
@@ -63,11 +63,11 @@ public class Socio extends Usuario {
         return this.trofeos;
     }
 
-    public void setDiasEntrenamiento(String dia) {
-        this.diasEntrenamiento.add(dia);
+    public int setDiasEntrenamiento(int dias) {
+        return this.diasEntrenamiento = dias;
     }
 
-    public List<String> getDiasEntrenamiento() {
+    public int getDiasEntrenamiento() {
         return this.diasEntrenamiento;
     }
 

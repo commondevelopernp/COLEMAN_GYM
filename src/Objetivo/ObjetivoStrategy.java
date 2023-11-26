@@ -1,9 +1,11 @@
 package Objetivo;
 
+import java.util.List;
+
+import Ejercicio.Ejercicio;
 import Medicion.Medicion;
 import Observer.Observado;
 import Rutina.Rutina;
-import Rutina.FactoryRutina;
 
 public abstract class ObjetivoStrategy extends Observado{
 
@@ -12,18 +14,14 @@ public abstract class ObjetivoStrategy extends Observado{
     private int nivelExigencia;
     private int nivelAerobico;
     private int duracionEntrenamiento;
-    private Rutina rutina;
     private Boolean cumplido;
-    private int DURACION_MIN;
-    private int DURACION_MAX;
-    
-    
-   
+    private Rutina rutina;
 
-    public void setRutina(){
-        this.rutina = FactoryRutina.crearRutina(getNombre(), getDiasEntrenamiento()); 
-        
-    }
+
+    public void setRutina(Rutina rutina){
+        this.rutina = rutina;
+    } 
+
     public int getNivelExigencia() {
         return nivelExigencia;
     }
@@ -77,22 +75,4 @@ public abstract class ObjetivoStrategy extends Observado{
     public int getMaxNivelExigencia() {
         return MAX_NIVEL_EXIGENCIA;
     }
-
-    public void setDURACION_MIN(int DURACION_MIN) {
-        this.DURACION_MIN = DURACION_MIN;
-    }
-
-    public int getDURACION_MIN() {
-        return DURACION_MIN;
-    }
-
-    public void setDURACION_MAX(int DURACION_MAX) {
-        this.DURACION_MAX = DURACION_MAX;
-    }
-
-    public int getDURACION_MAX() {
-        return DURACION_MAX;
-    }
-
-
 }

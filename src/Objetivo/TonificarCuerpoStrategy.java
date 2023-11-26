@@ -1,5 +1,8 @@
 package Objetivo;
 
+import java.util.List;
+
+import Ejercicio.Ejercicio;
 import Medicion.Medicion;
 import Rutina.Rutina;
 
@@ -7,16 +10,12 @@ public class TonificarCuerpoStrategy extends ObjetivoStrategy {
 
     private Float masaMuscularIdeal;
     private Float porcentajeGrasaIdeal;
-    private Rutina rutina;
 
     public TonificarCuerpoStrategy() {
         super();
-        this.setNombre("Tonificar Cuerpo");
+        this.setNombre("Tonificar");
         this.masaMuscularIdeal = 0f;
         this.porcentajeGrasaIdeal = 0f;
-        setDURACION_MIN(120);
-        setDURACION_MAX(150);
-
     }
 
     @Override
