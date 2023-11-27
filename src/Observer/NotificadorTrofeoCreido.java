@@ -1,5 +1,6 @@
 package Observer;
 
+import Medicion.Medicion;
 import Trofeos.Trofeo;
 import Users.Socio;
 
@@ -21,6 +22,7 @@ public class NotificadorTrofeoCreido extends ObservadorPremio{
         if (this.cantidadPesajes >= MAX_PESAJES) {
             this.addAListaSocio();
         }
+
     }
 
     @Override
@@ -28,21 +30,31 @@ public class NotificadorTrofeoCreido extends ObservadorPremio{
 
         Trofeo trofeo = new Trofeo(
             "Creido",
-            "Se otorga a los socios que se pesan mas de 10 veces en un mes" + " " + "Has pesado " + cantidadPesajes
+            "Se otorga a los socios que se pesan mas de 3 veces en un mes"
         );
 
-        this.socio.setTrofeos(trofeo);
+        // Si ya le entregue el trofeo creido no se lo entrego nuevamente.
+        for (Trofeo trofeoSocio : this.socio.getTrofeos()) {
+            if (trofeoSocio.getNombre().equals(trofeo.getNombre())) {
+                return;
+            }
+        }
 
-        this.setCantidadPesajes(cantidadPesajes); // Se resetea la cantidad de pesajes
+        if (this.socio.getMedicion().size() >= 3) {
+            boolean sameMonth = false;
+            int mediciones = socio.getMedicion().size();
+            for (int i = 0; i < mediciones - 1; i++) {
+                if (socio.getMedicion().get(i).getFecha().getMonth() == socio.getMedicion().get(i + 1).getFecha()
+                        .getMonth()) {
+                    sameMonth = true;
+                } else {
+                    sameMonth = false;
+                    break;
+                }
+            }
+            if (sameMonth) {
+                this.socio.setTrofeos(trofeo);
+            }
+        }
     }
-
-    public int getCantidadPesajes() {
-        return cantidadPesajes;
-    }
-
-    public void setCantidadPesajes(int cantidadPesajes) {
-        this.cantidadPesajes = cantidadPesajes;
-    }
-
-    
 }

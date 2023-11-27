@@ -8,10 +8,10 @@ public class NotificadorTrofeoConstancia extends ObservadorPremio{
 
     private Rutina rutina;
 
-    public NotificadorTrofeoConstancia(Socio socio) {
+    public NotificadorTrofeoConstancia(Socio socio, Rutina rutina) {
         super();
         this.socio = socio;
-        this.rutina = socio.getObjetivoPrincipal().getRutina();
+        this.rutina = rutina;
     }
 
     @Override

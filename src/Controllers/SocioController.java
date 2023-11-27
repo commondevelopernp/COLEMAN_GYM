@@ -1,8 +1,13 @@
 package Controllers;
+import Gym.Gym;
 import Medicion.Medicion;
 import Objetivo.ObjetivoStrategy;
+import Observer.NotificadorTrofeoDedicacion;
+import Trofeos.Trofeo;
 import Users.Socio;
 import Users.Usuario;
+
+import java.util.List;
 
 public class SocioController {
 
@@ -11,6 +16,9 @@ public class SocioController {
 
         public Socio crearSocio(int edad, String sexoBiologico, String email, String password){
             Socio socio = new Socio(edad, sexoBiologico, email, password);
+
+            Gym gym = Gym.getInstance();
+            gym.setSocios(socio);
 
             return socio;
         }
@@ -21,6 +29,8 @@ public class SocioController {
 
         public void cambiarEstrategia(Socio socio, ObjetivoStrategy objetivo){
             socio.cambiarEstrategia(objetivo);
+            NotificadorTrofeoDedicacion notificador = new NotificadorTrofeoDedicacion(socio);
+            objetivo.attach(notificador);
         }
 
         public void setDiasEntrenamiento(Socio socio, int diasEntrenamiento){
@@ -36,6 +46,11 @@ public class SocioController {
             socio.setSexoBiologico(sexoBiologico);
             socio.setEmail(email);
             socio.setPassword(password);
+        }
+
+
+        public List<Trofeo> getTrofeos(Socio socio){
+            return socio.getTrofeos();
         }
 
 

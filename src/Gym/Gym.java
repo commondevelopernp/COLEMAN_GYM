@@ -3,6 +3,8 @@ package Gym;
 import Ejercicio.Ejercicio;
 import Ejercicio.Musculo;
 import Ejercicio.ExigenciaMuscular;
+import Users.Socio;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,7 @@ public class Gym {
     private static Gym instance = null;
 
     private List<Ejercicio> ejercicios = new ArrayList<Ejercicio>();
+    private List<Socio> socios = new ArrayList<>();
 
     public static Gym getInstance() {
         if (instance == null) {
@@ -139,6 +142,14 @@ public class Gym {
 
     public List<Ejercicio> getEjercicios() {
         return ejercicios;
+    }
+
+    public void setSocios(Socio socio) {
+        this.socios.add(socio);
+    }
+
+    public List<Socio> getSocios() {
+        return this.socios;
     }
 
     public void setEjercicios(List<Ejercicio> ejerciciosList) {

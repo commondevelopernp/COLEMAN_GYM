@@ -1,5 +1,6 @@
 package Controllers;
 
+import Medicion.Medicion;
 import Objetivo.BajarDePesoStrategy;
 import Objetivo.MantenerPesoStrategy;
 import Objetivo.ObjetivoStrategy;
@@ -24,6 +25,10 @@ public class ObjetivoController {
     public TonificarCuerpoStrategy crearObjetivoTonificar(Float masaMuscularIdeal, Float porcentajeGrasaIdeal) {
         TonificarCuerpoStrategy objetivo = new TonificarCuerpoStrategy(masaMuscularIdeal, porcentajeGrasaIdeal);
         return objetivo;
+    }
+
+    public void verificarObjetivo(ObjetivoStrategy objetivo, Medicion medicion){
+        objetivo.verificarObjetivo(medicion);
     }
 
     public void setRutina (ObjetivoStrategy objetivo, Rutina rutina){
